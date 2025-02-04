@@ -8,11 +8,17 @@ import React, { useState } from 'react';
 function App() {
   const onDelete = (todo)=>{
     console.log("I am onDelete of todo",todo);
-    let index = todos.indexOf(todo);
-    todos.splice(index, 1);
+
+    //Deleting in this way will not work in React
+    // let index = todos.indexOf(todo);
+    // todos.splice(index, 1);
+
+    setTodos(todos.filter((e)=>{
+      return e!==todo;
+    }));
   }
 
-  let todos = [
+  const [todos, setTodos] = useState([
     {
       sno: 1,
       title: "Go to the market", 
@@ -28,7 +34,8 @@ function App() {
       title: "Go to the school", 
       desc: "You need to go to the school to get this job done3"
     }
-  ]
+  ]);
+
   return (
     <>
       <Header title="My ToDos List" searchBar={true}/>
