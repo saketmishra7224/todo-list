@@ -19,6 +19,10 @@ function App() {
     }));
   }
 
+  const addTodo = (title, desc)=>{
+    
+  }
+
   const [todos, setTodos] = useState([
     {
       sno: 1,
@@ -40,7 +44,7 @@ function App() {
   return (
     <>
       <Header title="My ToDos List" searchBar={true}/>
-      <AddTodo/>
+      <AddTodo addTodo={addTodo}/>
       <Todos todos = {todos} onDelete={onDelete}/>
       <Footer/>
     </>
