@@ -4,7 +4,7 @@ import {TodoItem} from './TodoItem';
 export const Todos = (props) => {
 
   let ContainerStyle = {
-    height: "45vh",
+    height: "44vh",
     overflowY: 'scroll'
   };
 
@@ -13,7 +13,9 @@ export const Todos = (props) => {
       <h2 className=' my-3'>Todos List</h2>
       {props.todos.length === 0? "No Todos to display":
       props.todos.map((todo)=>{
-        return <TodoItem todo = {todo} key={todo.sno} onDelete={props.onDelete}/>
+        return(
+        <TodoItem todo = {todo} key={todo.sno} onDelete={props.onDelete}/>
+      )
       })
       }
     </div>
